@@ -13,7 +13,7 @@ const eqArrays = (arrOne, arrTwo) => {
     if (arrOne[i] !== arrTwo[i]) return false;
   }
   return true;
-}
+};
 
 //test case
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
