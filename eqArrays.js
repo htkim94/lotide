@@ -9,11 +9,16 @@ const assertEqual = function(actual, expected) {
 
 //Function for equal Array check
 const eqArrays = (arrOne, arrTwo) => {
-  for (let i = 0; i < arrOne.length; i++) {
-    if (arrOne[i] !== arrTwo[i]) return false;
+  if (arrOne.length !== arrTwo.length) {
+    return false;
+  } else {
+    for (let i = 0; i < arrOne.length; i++) {
+      if (arrOne[i] !== arrTwo[i]) return false;
+    }
+    return true;
   }
-  return true;
 };
 
 //test case
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); //pass
+assertEqual(eqArrays([1, 2, 3], [1, 2]), true); //fail
