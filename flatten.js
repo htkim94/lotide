@@ -46,5 +46,20 @@ const flatten = (arr) => {
   return helperFlatten(arr, res, false);
 }
 
+//flatten function without helper using concat
+const fn = (arr) => {
+  let res = [];
+  for (const a of arr) {
+    if (Array.isArray(a)) {
+      res = res.concat(n(a));
+    } else {
+      res.push(a);
+    }
+  }
+  return res;
+};
+
 console.log(flatten([1, 2, [3, 4], 5, [6, 7, [8, 9]]]));
+console.log(fn([1, 2, [3, 4], 5, [6, 7, [8, 9]]]));
 console.log(flatten([1, [2, [3, [4]], 5]]));
+console.log(fn([1, [2, [3, [4]], 5]]));
