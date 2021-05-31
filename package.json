@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@htkim94/lotide",
   "version": "1.0.0",
-  "description": "## Repository for Lighthouse Labs Bootcamp project of Week 1",
+  "description": "A mini clone of the [Lodash](https://lodash.com) library.",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/htkim94/lotide.git"
   },
-  "author": "",
+  "author": "Hotae Kevin Kim <hotae.kim.94@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/htkim94/lotide/issues"
