@@ -51,7 +51,7 @@ const fn = (arr) => {
   let res = [];
   for (const a of arr) {
     if (Array.isArray(a)) {
-      res = res.concat(n(a));
+      res = res.concat(fn(a));
     } else {
       res.push(a);
     }
