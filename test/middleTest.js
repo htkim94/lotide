@@ -1,10 +1,28 @@
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const middle = require("../middle");
 
 //Test Code
-assertArraysEqual(middle([1]), []); // => []
-assertArraysEqual(middle([1, 2]), []); // => []
-assertArraysEqual(middle([1, 2, 3]), [2]); // => [2]
-assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]); // => [3]
-assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]); // => [2, 3]
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]); // => [3, 4]
+// assertArraysEqual(middle([1]), []); // => []
+// assertArraysEqual(middle([1, 2]), []); // => []
+// assertArraysEqual(middle([1, 2, 3]), [2]); // => [2]
+// assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]); // => [3]
+// assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]); // => [2, 3]
+// assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]); // => [3, 4]
+
+describe("#middle", () => {
+  it("should return an empty array when array length of one is passed", () => {
+    assert.deepEqual(middle([1]), []);
+  });
+
+  it("should return an empty array when array length of two is passed", () => {
+    assert.deepEqual(middle([1, 2]), []);
+  });
+
+  it("should return an array of middle index when array.length > 1 && odd number is passed", () => {
+    assert.deepEqual(middle([1, 2, 3]), [2]);
+  });
+
+  it("should return an array of two middle most index when array.length > 2 && even number is passed", () => {
+    assert.deepEqual(middle([1, 2, 3, 4]), [2, 3]);
+  });
+});
