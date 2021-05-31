@@ -13,7 +13,13 @@ const eqArrays = (arrOne, arrTwo) => {
     return false;
   } else {
     for (let i = 0; i < arrOne.length; i++) {
-      if (arrOne[i] !== arrTwo[i]) return false;
+      if (Array.isArray(arrOne[i]) && Array.isArray(arrTwo[i])) {
+        if (!eqArrays(arrOne[i], arrTwo[i])) {
+          return false;
+        }
+      } else if (arrOne[i] !== arrTwo[i]) {
+        return false;
+      } 
     }
     return true;
   }
@@ -22,3 +28,4 @@ const eqArrays = (arrOne, arrTwo) => {
 //test case
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); //pass
 assertEqual(eqArrays([1, 2, 3], [1, 2]), true); //fail
+assertEqual(eqArrays([1, [2, [3, 4]]], [1, [2, [3, 4]]]), true);
