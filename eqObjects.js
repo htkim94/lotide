@@ -24,9 +24,19 @@ const eqObjects = (obj1, obj2) => {
   //Compare the number of keys
   if (Object.keys(obj1).length === Object.keys(obj2).length) {
     for (let key in obj1) {
-      //Check for array if not, compare values
-      if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
-        if (!(eqArrays(obj1[key], obj2[key]))) {
+      //Check if they are objects
+      if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
+        //Check for array if not, compare values
+        if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
+          if (!eqArrays(obj1[key], obj2[key])) {
+            return false;
+          }
+        } else if (
+          (Array.isArray(obj1[key]) && !Array.isArray(obj2[key])) ||
+          (!Array.isArray(obj1[key]) && Array.isArray(obj2[key]))
+        ) {
+          return false;
+        } else if (!eqObjects(obj1[key], obj2[key])) {
           return false;
         }
       } else if (obj1[key] !== obj2[key]) {
@@ -53,3 +63,7 @@ assertEqual(eqObjects(cd, dc), true); // => pass
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), true); // => fail
+
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
