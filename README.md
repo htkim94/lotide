@@ -35,6 +35,7 @@ The following functions are currently implemented:
 * `eqObjeccts(obj1, obj2)`: function will compare two input objects (works for nested objects and value of array) and return true if both objects have same keys and values.
 * `findKey(obj, callback)`: returns the key of input object which matches the result of callback function.
 * `findKeyByValues(obj, value)`: returns the key of input object with the input value.
+* `flatten(arr)`: takes nested array and returns flat (single nest) array.
 * `letterPositions(string)`: takes an input of string and returns as object with key of character and value of positions (array).
 * `map(array, callback)`: mini copy of existing JS method map function.
 * `takeUntil(array, callback)`: loops through input array and push only the elements which is true to the callback function. Returns array of pushed elements.
